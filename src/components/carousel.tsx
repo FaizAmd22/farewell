@@ -8,13 +8,14 @@ import Marquee from "react-fast-marquee";
 
 const Carousel = () => {
   const data = [image1, image2, image3, image4, image5];
+  const data2 = [image4, image5, image1, image2, image1];
 
   return (
     <div className="pt-10 pb-16">
       <Marquee
         gradient={true}
         gradientColor="#101010"
-        speed={40}
+        speed={50}
         className="mb-3"
       >
         {data.map((item, index) => (
@@ -38,7 +39,7 @@ const Carousel = () => {
         direction="right"
         speed={30}
       >
-        {data.map((item, index) => (
+        {data2.map((item, index) => (
           <div
             key={index}
             className="w-[244px] lg:w-[380px] h-[154px] lg:h-[200px] mr-4"
