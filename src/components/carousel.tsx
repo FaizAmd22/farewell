@@ -11,7 +11,6 @@ const Carousel = () => {
 
   return (
     <div className="pt-10 pb-16">
-      {/* Marquee ke kiri */}
       <Marquee
         gradient={true}
         gradientColor="#101010"
@@ -33,7 +32,6 @@ const Carousel = () => {
         ))}
       </Marquee>
 
-      {/* Marquee ke kanan */}
       <Marquee
         gradient={true}
         gradientColor="#101010"

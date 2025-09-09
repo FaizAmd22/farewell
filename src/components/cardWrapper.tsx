@@ -15,7 +15,7 @@ const CardWrapper = () => {
 
   if (loading) {
     return (
-      <div className="mt-8 md:mt-10 lg:mt-12 columns-1 md:columns-2 lg:columns-4 gap-4">
+      <div className="mt-12 columns-1 md:columns-2 lg:columns-4 gap-4">
         {[1, 2, 3, 4].map((i) => (
           <div key={i} className="mb-4 break-inside-avoid">
             <CardSkeleton />
@@ -27,7 +27,7 @@ const CardWrapper = () => {
 
   if (error) {
     return (
-      <div className="mt-8 bg-[#171717] rounded-xl text-[#ff6b6b] p-4 text-center">
+      <div className="mt-12 bg-[#171717] rounded-xl text-[#ff6b6b] p-4 text-center">
         <p className="mb-2">Error: {error}</p>
         <button
           onClick={refetch}
@@ -40,7 +40,7 @@ const CardWrapper = () => {
   }
 
   return (
-    <div className="mt-8 md:mt-10 lg:mt-12 columns-1 md:columns-2 lg:columns-4 gap-4">
+    <div className="mt-12 columns-1 md:columns-2 lg:columns-4 gap-4">
       {localData.map((item, index) => (
         <div key={index} className="mb-4 break-inside-avoid">
           <Card data={item} />

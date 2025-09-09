@@ -13,7 +13,7 @@ const Homepage = () => {
         backgroundImage: "url('/bg.svg')",
       }}
     >
-      <div className="p-5 md:p-8 lg:p-10">
+      <div className="p-4 md:p-8 lg:p-10">
         <Header />
         <CardWrapper />
       </div>
