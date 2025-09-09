@@ -5,40 +5,35 @@ import image3 from "../../public/foto/03.png";
 import image4 from "../../public/foto/04.png";
 import image5 from "../../public/foto/05.png";
 import Marquee from "react-fast-marquee";
-import { Box } from "@chakra-ui/react";
 
 const Carousel = () => {
   const data = [image1, image2, image3, image4, image5];
 
   return (
-    <div style={{ paddingTop: "40px", paddingBottom: "60px" }}>
+    <div className="pt-10 pb-16">
+      {/* Marquee ke kiri */}
       <Marquee
         gradient={true}
         gradientColor="#101010"
         speed={40}
-        style={{ marginBottom: "12px" }}
+        className="mb-3"
       >
         {data.map((item, index) => (
-          <Box
-            width={{ base: "244px", lg: "380px" }}
-            height={{ base: "154px", lg: "200px" }}
-            mr={"16px"}
+          <div
+            key={index}
+            className="w-[244px] lg:w-[380px] h-[154px] lg:h-[200px] mr-4"
           >
             <Image
-              key={index}
               src={item}
-              alt="foto"
-              style={{
-                width: "100%",
-                height: "100%",
-                borderRadius: "12px",
-                objectFit: "cover",
-              }}
+              alt={`foto-${index}`}
+              className="w-full h-full rounded-xl object-cover"
+              priority
             />
-          </Box>
+          </div>
         ))}
       </Marquee>
 
+      {/* Marquee ke kanan */}
       <Marquee
         gradient={true}
         gradientColor="#101010"
@@ -46,23 +41,17 @@ const Carousel = () => {
         speed={30}
       >
         {data.map((item, index) => (
-          <Box
-            width={{ base: "244px", lg: "380px" }}
-            height={{ base: "154px", lg: "200px" }}
-            mr={"16px"}
+          <div
+            key={index}
+            className="w-[244px] lg:w-[380px] h-[154px] lg:h-[200px] mr-4"
           >
             <Image
-              key={index}
               src={item}
-              alt="foto"
-              style={{
-                width: "100%",
-                height: "100%",
-                borderRadius: "12px",
-                objectFit: "cover",
-              }}
+              alt={`foto-${index}`}
+              className="w-full h-full rounded-xl object-cover"
+              priority
             />
-          </Box>
+          </div>
         ))}
       </Marquee>
     </div>

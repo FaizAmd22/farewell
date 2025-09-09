@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { Box, Button, Text } from "@chakra-ui/react";
 import useGoogleSheets from "../hooks/useGoogleSheet";
 import Card from "./card";
 import CardSkeleton from "./cardSkeleton";
 
 const CardWrapper = () => {
-  const [localData, setLocalData] = useState([]);
+  const [localData, setLocalData] = useState<any[]>([]);
   const { data, loading, error, refetch } = useGoogleSheets();
 
   useEffect(() => {
@@ -16,55 +15,38 @@ const CardWrapper = () => {
 
   if (loading) {
     return (
-      <Box
-        mt={{ base: "30px", md: "40px", lg: "50px" }}
-        columnCount={{ base: 1, md: 2, lg: 4 }}
-        columnGap="16px"
-      >
+      <div className="mt-8 md:mt-10 lg:mt-12 columns-1 md:columns-2 lg:columns-4 gap-4">
         {[1, 2, 3, 4].map((i) => (
-          <Box key={i} mb="16px" breakInside="avoid">
+          <div key={i} className="mb-4 break-inside-avoid">
             <CardSkeleton />
-          </Box>
+          </div>
         ))}
-      </Box>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <Box
-        mt="30px"
-        bg="#171717"
-        borderRadius="12px"
-        color="#ff6b6b"
-        p="16px"
-        textAlign="center"
-      >
-        <Text mb={2}>Error: {error}</Text>
-        <Button
+      <div className="mt-8 bg-[#171717] rounded-xl text-[#ff6b6b] p-4 text-center">
+        <p className="mb-2">Error: {error}</p>
+        <button
           onClick={refetch}
-          bg="#333"
-          color="white"
-          _hover={{ bg: "#444" }}
+          className="bg-[#333] text-white px-4 py-2 rounded-lg hover:bg-[#444]"
         >
           Try Again
-        </Button>
-      </Box>
+        </button>
+      </div>
     );
   }
 
   return (
-    <Box
-      mt={{ base: "30px", md: "40px", lg: "50px" }}
-      columnCount={{ base: 1, md: 2, lg: 4 }}
-      columnGap="16px"
-    >
+    <div className="mt-8 md:mt-10 lg:mt-12 columns-1 md:columns-2 lg:columns-4 gap-4">
       {localData.map((item, index) => (
-        <Box key={index} mb="16px" breakInside="avoid">
+        <div key={index} className="mb-4 break-inside-avoid">
           <Card data={item} />
-        </Box>
+        </div>
       ))}
-    </Box>
+    </div>
   );
 };
 
